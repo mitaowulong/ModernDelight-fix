@@ -32,7 +32,7 @@ public class IceCreamMakerBlockItem extends BlockItem implements GeoItem {
         SingletonGeoAnimatable.registerSyncedAnimatable(this);
     }
     private final AnimatableInstanceCache cache = new SingletonAnimatableInstanceCache(this);
-    private final Supplier<Object> renderProvider = GeoItem.makeRenderer(this);
+    private final Supplier<Object> renderer = this::registerRenderer; // 使用新版 API
     private static final RawAnimation START = RawAnimation.begin().thenLoop("idle");
 
     @Override
